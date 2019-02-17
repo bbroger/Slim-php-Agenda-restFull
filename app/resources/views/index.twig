@@ -1,0 +1,79 @@
+{% extends 'layout.twig' %}
+
+
+{% block content %}
+
+<div class="row">
+   <div class="col-md-4">
+   
+        <form id="top" action="/login" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+               
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="senha" class="form-control" id="exampleInputPassword1" name="senha">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+<div class="col-md-8" id="top">
+<h1> Why do we use it?</h1>
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed 
+to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and
+ web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover
+  many web sites still in their infancy. Various versions
+ have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+</div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+       <h1> Why do we use it?</h1>
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+        its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed 
+        to using 'Content here, content here', making it look like readable English
+    </div>
+
+    
+        <div class="card col-sm-2">
+            <img src="/img/agenda.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+    
+
+    
+        <div class="card col-sm-2">
+            <img src="/img/agenda.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+
+        <div class="card col-sm-2">
+            <img src="/img/agenda.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+
+        <div class="card col-sm-2">
+            <img src="/img/agenda.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+{% endblock %}
