@@ -15,6 +15,14 @@ $container['view'] = function ($container) {
     return $view;
 
 };
+
+
+//FLASHE MENSSAGE
+$container['flash'] = function () {
+    return new \Slim\Flash\Messages();
+};
+
+
 // DOCTRINE
 $container['em'] = function ($c) {
     $settings = $c->get('settings');
@@ -30,13 +38,13 @@ $container['em'] = function ($c) {
 
 
 $container['HomeController'] = function ($container) {
-    return new \App\Controller\HomeController($container  , $container->get('em'));
+    return new \App\Controller\HomeController($container  , $container->get('em') );
     
     };
 
-    $container['TesteController'] = function ($container) {
+    $container['AdminController'] = function ($container) {
      
-        return new App\Controller\TesteController($container , $container->get('em'));
+        return new App\Controller\AdminController($container , $container->get('em') ,$container->get('flash'));
         
         };
 

@@ -2,7 +2,6 @@
 namespace App\Controller; 
 
 use Slim\Views\Twig as View;
-use App\Model\Contact;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Doctrine\ORM\EntityManager;
@@ -19,16 +18,6 @@ public function __construct($container ,EntityManager $em)
 {
           $this->em = $em;
           $this->container=$container;
-}
-
-
-   public function home(Request $request, Response $response, $args) 
-{
-     
-      $contact =  $this->em->getRepository('App\Model\Contact')->findAll();
-        
-        return $this->container->view->render($response ,'admin/home.twig' ,Array( 'contact' => $contact));
-  
 }
 
    public function index(Request $request, Response $response, $args) 

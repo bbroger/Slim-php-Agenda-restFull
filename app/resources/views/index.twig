@@ -4,8 +4,16 @@
 {% block content %}
 
 <div class="row">
+    
+    
    <div class="col-md-4">
    
+   {% for message in messages %}
+    <div class="alert alert-danger">
+    <li>{{ message[0] }}</li>
+    </div>
+    {% endfor %}
+
         <form id="top" action="/login" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>

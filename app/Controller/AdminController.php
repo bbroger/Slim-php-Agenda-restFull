@@ -6,16 +6,37 @@ use App\Model\User;
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use  Slim\Flash\Messages;
 
-final class TesteController
+class AdminController
 {
     private $em;
     private $container;
-    public function __construct($container ,EntityManager $em)
+    private $flash;
+    public function __construct($container ,EntityManager $em ,$flash)
     {
         $this->em = $em;
         $this->container=$container;
+        $this->flash = $flash;
     }
+
+    public function home(Request $request, Response $response, $args) 
+    {
+        if(isset($_SESSION['email'])){
+
+        $contact =  $this->em->getRepository('App\Model\Contact')->findAll();
+        return $this->container->view->render($response ,'admin/home.twig' ,Array( 'contact' => $contact));
+
+        }else{
+            
+            $this->flash->addMessageNow('msg', 'Você não tem Acesso');
+            $messages = $this->flash->getMessages();
+            //var_dump($messages);
+            return $this->container->view->render($response ,'index.twig'  ,Array( 'messages' => $messages));
+        }
+    }
+
+
     public function login($request, $response, $args)
     {
        
@@ -108,7 +129,7 @@ public function logout($request, $response, $args)
         $this->em->flush();
 
          // Retornando o nome da rota 
-         $url = $this->container->get('router')->pathFor('home1');
+         $url = $this->container->get('router')->pathFor('home');
          return $response->withStatus(302)->withHeader('Location', $url);
     }
 

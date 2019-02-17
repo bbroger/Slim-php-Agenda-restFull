@@ -8,8 +8,7 @@
     
     // HOME ROUTE
     //
-  
-    $app->get('/home', 'HomeController:home')->setName('home');
+
     $app->get('/', 'HomeController:index')->setName('index'); 
     $app->get('/about','HomeController:about')->setName('about');
     $app->get('/contact', 'HomeController:contact')->setName('contact');
@@ -17,15 +16,15 @@
     
     //
     //
-    // TESTECONTROLLER
+    // ADMIN-CONTROLLER
  
-    $app->post('/hometeste', 'TesteController:hometeste')->setName('teste');
-   
-    $app->get('/logout', 'TesteController:logout')->setName('logout');
-    $app->post('/login', 'TesteController:login')->setName('login');
-    $app->get('/GetcontactID', 'TesteController:GetcontactID')->setName('GetcontactID');
-    $app->post('/putContact', 'TesteController:putContact')->setName('putContact');
-    $app->get('/DeleteContact' , 'TesteController:DeleteContact')->setName('DeleteContact');
+    $app->post('/hometeste', 'AdminController:hometeste')->setName('teste');
+    $app->get('/home', 'AdminController:home')->setName('home');
+    $app->get('/logout', 'AdminController:logout')->setName('logout');
+    $app->post('/login', 'AdminController:login')->setName('login');
+    $app->get('/GetcontactID', 'AdminController:GetcontactID')->setName('GetcontactID');
+    $app->post('/putContact', 'AdminController:putContact')->setName('putContact');
+    $app->get('/DeleteContact' , 'AdminController:DeleteContact')->setName('DeleteContact');
     //
     
 
